@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guillem Bárcena Folia · My room</title>
+<meta name="description" content="The portfolio of Guillem Bárcena Folia, economist from Barcelona, as a room you can walk into. Click the objects, then go into the computer to read the CV.">
+<meta property="og:title" content="Guillem Bárcena Folia · My room">
+<meta property="og:description" content="An economist's study at dusk, with Barcelona outside the window. Click the objects, then go into the computer to read the CV.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guillembarcena.github.io/">
+<meta property="og:image" content="https://guillembarcena.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#120e1f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%232a2459%27/%3E%3Crect x=%277%27 y=%277%27 width=%2718%27 height=%2713%27 fill=%27%23f6a05a%27/%3E%3Crect x=%275%27 y=%2723%27 width=%2722%27 height=%273%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="room/css/style.css?v=14">
+<script type="importmap">{ "imports": { "three": "./room/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+<div id="loader" aria-hidden="true">
+  <svg viewBox="0 0 1100 520" role="img">
+    <defs><linearGradient id="lsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3277"/><stop offset=".6" stop-color="#c9567a"/><stop offset="1" stop-color="#f6a05a"/></linearGradient></defs>
+    <rect width="1100" height="520" fill="#1a1530"/>
+    <rect class="sky" x="330" y="90" width="290" height="230" fill="url(#lsky)"/>
+    <path d="M440 320V250q4-40 8-40t8 40v-30q5-50 10-50t10 50v-45q7-60 14-60t14 60v45q5-50 10-50t10 50v30q4-40 8-40t8 40v70z" fill="#1a1530"/>
+    <path d="M330 90h290v230H330zM475 90v230" fill="none" stroke="#0f0b1c" stroke-width="10"/>
+    <path d="M40 150h220v170H40zM40 206h220M40 262h220M113 150v170M186 150v170" fill="none" stroke="#0f0b1c" stroke-width="10"/>
+    <rect x="30" y="350" width="250" height="90" fill="#0f0b1c"/><rect x="70" y="330" width="170" height="20" rx="4" fill="#0f0b1c"/>
+    <rect x="690" y="330" width="250" height="12" fill="#0f0b1c"/><rect x="700" y="342" width="8" height="110" fill="#0f0b1c"/><rect x="922" y="342" width="8" height="110" fill="#0f0b1c"/>
+    <rect x="770" y="258" width="130" height="62" rx="3" fill="#0f0b1c"/><rect class="mon" x="776" y="263" width="118" height="50" fill="#bcd4ff"/>
+    <circle class="lamp" cx="722" cy="296" r="26" fill="#ffb469" opacity=".8"/><path d="M706 290l32 0-8-22-16 0z" fill="#0f0b1c"/>
+    <rect x="960" y="110" width="110" height="342" fill="#0f0b1c"/>
+    <rect x="0" y="452" width="1100" height="68" fill="#0f0b1c"/>
+  </svg>
+  <p><b>Guillem Bárcena Folia</b>Opening the room</p>
+</div>
+<canvas id="gl" aria-label="A study at dusk with Barcelona outside the window"></canvas>
+<div id="vig"></div>
+<button id="sound" type="button">Enable sound</button>
+<a id="skip" href="?view=cv">Skip to CV</a>
+<div id="label" role="status"></div>
+<div id="card" role="dialog" aria-live="polite"></div>
+<div id="os"></div>
+<div id="plain"></div>
+<noscript><p style="padding:24px;font-family:sans-serif">This page needs JavaScript. The CV is available as a PDF: <a href="assets/cv.pdf" style="color:#8ab4ff">assets/cv.pdf</a></p></noscript>
+<script type="module" src="room/js/main.js?v=14"></script>
+</body>
+</html>

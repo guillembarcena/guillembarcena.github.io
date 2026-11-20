@@ -1,0 +1,6 @@
+# Files that stay on this computer and are not published
+prompt.md
+tools/
+obrir-web.bat
+assets/dorsal-referencia.jpg
+__pycache__/

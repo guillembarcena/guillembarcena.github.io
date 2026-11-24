@@ -1,5 +1,5 @@
 // Canvas-drawn textures: bib, medal, sleeves, labels, notes, screens.
-import { TRACKS } from './data.js?v=17';
+import { TRACKS } from './data.js?v=21';
 
 const DISPLAY = '"Archivo Black","Arial Black",Impact,sans-serif';
 const SANS = 'Inter,"Helvetica Neue",Arial,sans-serif';

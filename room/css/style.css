@@ -41,15 +41,17 @@ body.inos #skip, body.inos #sound { opacity: 0; pointer-events: none; }
 #intro { position: fixed; left: 28px; bottom: 28px; z-index: 17; max-width: 400px; color: var(--mist); pointer-events: none; transition: opacity .35s, transform .35s; text-shadow: 0 1px 14px rgba(14, 8, 26, .9); }
 #intro::before { content: ""; position: absolute; z-index: -1; left: -28px; bottom: -28px; width: calc(100% + 180px); height: calc(100% + 120px); background: radial-gradient(ellipse at 0% 100%, rgba(14, 8, 26, .78) 0%, rgba(14, 8, 26, .5) 45%, transparent 72%); }
 #intro h1 { font: 400 clamp(30px, 3.4vw, 44px)/1.02 var(--serif); letter-spacing: -.015em; color: #fff; margin: 0 0 10px; }
-#intro p { font: 400 15px/1.5 var(--ui); margin: 0; max-width: 36ch; }
+#intro p { font: 400 15px/1.5 var(--ui); margin: 0; max-width: 40ch; text-wrap: pretty; }
 #intro .how { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; }
 body:has(#card.show) #intro, body.inos #intro, body.nogl #intro { opacity: 0; transform: translateY(8px); }
 @media (max-width: 600px) { #intro { left: 16px; right: 16px; bottom: 18px; } #intro h1 { font-size: 28px; margin-bottom: 6px; } #intro p { font-size: 14px; } #intro .how { font-size: 12.5px; } }
 @media (max-height: 520px) { #intro .how { display: none; } }
 
-#credit { position: fixed; right: 18px; bottom: 14px; z-index: 16; margin: 0; font: 400 12px var(--ui); color: var(--muted); opacity: .8; pointer-events: none; text-shadow: 0 1px 8px rgba(14, 8, 26, .9); transition: opacity .35s; }
-body.inos #credit, body.nogl #credit { opacity: 0; }
-@media (max-width: 600px) { #credit { display: none; } }
+/* Shown once in the middle of the screen as the room appears, then fades away over about 3 seconds. */
+#credit { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 19; margin: 0; font: 500 clamp(20px, 2vw, 26px) var(--ui); text-shadow: 0 2px 18px rgba(14, 8, 26, .95), 0 0 4px rgba(14, 8, 26, .6); color: #fff; white-space: nowrap; pointer-events: none; opacity: 0; }
+body.entered #credit { animation: credit 4s ease forwards; }
+@keyframes credit { 0% { opacity: 0 } 10% { opacity: 1 } 50% { opacity: 1 } 100% { opacity: 0 } }
+body.nogl #credit { display: none; }
 
 #label { position: fixed; left: 0; top: 0; z-index: 15; pointer-events: none; font: 500 13px var(--ui); color: #fff; background: var(--glass-hi); border: 1px solid var(--line); padding: 6px 10px; border-radius: 6px; opacity: 0; transition: opacity .15s; max-width: 260px; }
 #label.show { opacity: 1; }
@@ -118,16 +120,18 @@ body.inos #credit, body.nogl #credit { opacity: 0; }
 .cv-nav a { color: #45423c; cursor: pointer; text-decoration: none; font-weight: 500; }
 .cv-nav a:hover { color: var(--accent); }
 .cv-nav .cv-dl { margin-left: auto; background: var(--accent); color: #fff; padding: 5px 12px; border-radius: 6px; font-weight: 600; }
-.cv-nav .cv-dl:hover { color: #fff; background: var(--accent-2); }
+.cv-nav .cv-dl:hover { color: #fff; background: #1f63dc; }
+.cv-nav { font-family: Inter, "Helvetica Neue", Arial, sans-serif; }
 .cv-scroll { flex: 1; overflow: auto; }
-.cv-doc { max-width: 760px; margin: 0 auto; padding: 36px 40px 64px; color: var(--ink); font: 400 14.5px/1.55 var(--ui); }
-.cv-head { margin-bottom: 26px; padding-bottom: 18px; border-bottom: 1px solid #ddd8e3; }
-.cv-head h1 { font: 400 40px/1.05 var(--serif); letter-spacing: -.015em; margin: 0 0 6px; }
-.cv-head p { margin: 0; color: #6a6475; font-size: 15px; }
-.cv-sec { scroll-margin-top: 8px; border-radius: 6px; transition: background .6s; padding: 2px 8px; margin: 0 -8px; }
-.cv-sec.flash { background: #f1eaf9; }
-.cv-sec h2 { font: 500 22px/1.2 var(--serif); color: var(--accent); margin: 28px 0 12px; }
-.cv-entry b { font-weight: 600; } .cv-entry i { font-style: normal; color: #4a4553; }
+/* The CV keeps its original look: Inter, Archivo Black name, blue accent. */
+.cv-app, #plain .cv-doc { --accent: #2f7bff; --ink: #16181d; }
+.cv-doc { max-width: 780px; margin: 0 auto; padding: 30px 34px 60px; color: var(--ink); font-family: Inter, "Helvetica Neue", Arial, sans-serif; font-size: 14.5px; line-height: 1.5; }
+.cv-head { text-align: center; margin-bottom: 20px; }
+.cv-head h1 { font: 400 30px/1.15 "Archivo Black", "Arial Black", Impact, sans-serif; margin: 0 0 4px; }
+.cv-head p { margin: 0; color: #6b665c; }
+.cv-sec { scroll-margin-top: 8px; border-radius: 6px; transition: background .6s; padding: 2px 6px; margin: 0 -6px; }
+.cv-sec.flash { background: #fff1c2; }
+.cv-sec h2 { font: 700 13px Inter, "Helvetica Neue", Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; border-bottom: 2px solid var(--ink); padding-bottom: 5px; margin: 24px 0 12px; }
 .cv-entry { margin-bottom: 14px; }
 .cv-row { display: flex; justify-content: space-between; gap: 16px; }
 .cv-meta { text-align: right; color: #6b665c; font-size: 13px; flex: none; }

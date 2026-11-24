@@ -72,7 +72,7 @@ export const CV = [
 ];
 
 export function cvHTML() {
-  let h = '<header class="cv-head"><h1>Guillem Bárcena Folia</h1><p>Economist in Barcelona. Health, public policy and startups.</p></header>';
+  let h = '<header class="cv-head"><h1>Guillem Bárcena Folia</h1><p>Economist · Barcelona</p></header>';
   for (const s of CV) {
     h += `<section id="cv-${s.id}" class="cv-sec"><h2>${s.title}</h2>`;
     if (s.entries) for (const e of s.entries) {

@@ -27,7 +27,7 @@ export const ABOUT = [
   'I studied the bilingual degree in Economics at Universitat Pompeu Fabra and spent an autumn semester at the University of Edinburgh. My dissertation, written as a group, measured how efficiently the Spanish autonomous communities spend on public health.',
   'I worked as a Strategy and Transformation consultant at KPMG, mostly for public bodies in Catalonia. At RUMIA, a health and AI spin-off, I lead go-to-market: organisation, funding and clients.',
   'Away from the desk I mix house music, I ran the Barcelona Marathon 2026 in 3:15:33, and I was a scout leader at AEiG Pau Claris from 2023 to 2025.',
-  'This room and the computer in it were built with Claude.',
+  'This room and the computer in it were made with Claude Code.',
 ].join('\n\n');
 
 const E = (org, role, place, dates, items) => ({ org, role, place, dates, items });
@@ -72,7 +72,7 @@ export const CV = [
 ];
 
 export function cvHTML() {
-  let h = '<header class="cv-head"><h1>Guillem Bárcena Folia</h1><p>Economist · Barcelona</p></header>';
+  let h = '<header class="cv-head"><h1>Guillem Bárcena Folia</h1><p>Economist in Barcelona. Health, public policy and startups.</p></header>';
   for (const s of CV) {
     h += `<section id="cv-${s.id}" class="cv-sec"><h2>${s.title}</h2>`;
     if (s.entries) for (const e of s.entries) {

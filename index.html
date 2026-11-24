@@ -17,8 +17,8 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%232a2459%27/%3E%3Crect x=%277%27 y=%277%27 width=%2718%27 height=%2713%27 fill=%27%23f6a05a%27/%3E%3Crect x=%275%27 y=%2723%27 width=%2722%27 height=%273%27 fill=%27%23fff%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="room/css/style.css?v=14">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500&family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="room/css/style.css?v=16">
 <script type="importmap">{ "imports": { "three": "./room/vendor/three.module.min.js" } }</script>
 </head>
 <body>
@@ -42,12 +42,18 @@
 <canvas id="gl" aria-label="A study at dusk with Barcelona outside the window"></canvas>
 <div id="vig"></div>
 <button id="sound" type="button">Enable sound</button>
-<a id="skip" href="?view=cv">Skip to CV</a>
+<a id="skip" href="?view=cv">Read the CV</a>
+<section id="intro" aria-label="About this page">
+  <h1>Guillem Bárcena Folia</h1>
+  <p>Economist from Barcelona, oriented to health and public policy, and to startups and technology.</p>
+  <p class="how">This is my room. Choose an object to see what it means to me, or open the computer to read my CV.</p>
+</section>
+<p id="credit">Made with Claude Code</p>
 <div id="label" role="status"></div>
 <div id="card" role="dialog" aria-live="polite"></div>
 <div id="os"></div>
 <div id="plain"></div>
 <noscript><p style="padding:24px;font-family:sans-serif">This page needs JavaScript. The CV is available as a PDF: <a href="assets/cv.pdf" style="color:#8ab4ff">assets/cv.pdf</a></p></noscript>
-<script type="module" src="room/js/main.js?v=14"></script>
+<script type="module" src="room/js/main.js?v=16"></script>
 </body>
 </html>

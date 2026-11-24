@@ -8,14 +8,14 @@ export const TRACKS = [
 
 export const CARDS = {
   marathon: { name: 'Marathon bib and medal', title: 'Barcelona Marathon 2026', lines: ['Finished in 3:15:33.'], year: '2026', cv: 'beyond' },
-  basketball: { name: 'Basketball and shoes', title: 'Basketball', lines: ['Several years playing at a high level, in the Preferente category.'], year: '', cv: 'beyond' },
-  diploma: { name: 'Degree', title: 'Economics at Universitat Pompeu Fabra', lines: ['Bilingual degree in Economics.', 'Dissertation on the efficiency of public health expenditure in the Spanish autonomous communities, a DEA analysis. Group work.'], year: '2022 to 2026', cv: 'education' },
+  basketball: { name: 'Basketball and shoes', title: 'Basketball', lines: ['Several years playing at the highest category.'], year: '', cv: 'beyond' },
+  diploma: { name: 'Degree', title: 'Economics at Universitat Pompeu Fabra', lines: ['Bilingual degree in Economics.', 'Dissertation on the efficiency of public health expenditure in the Spanish autonomous communities, a DEA analysis.'], year: '2022 to 2026', cv: 'education' },
   edinburgh: { name: 'Photo of the Highlands', title: 'University of Edinburgh', lines: ['Exchange semester.', 'Coursework: Economics of Health and Health Care.'], year: 'Autumn 2025', cv: 'education' },
   binders: { name: 'Project binders', title: 'KPMG, Strategy and Transformation', lines: ['A strategic action plan for the Catalan wine industry, for INCAVI.', 'Next Generation EU funding advisory and procurement checks for the Agència Catalana de l’Aigua.', 'A new document management model for the same agency.', 'The technical office for Next Generation EU funds for Barcelona City Council.'], year: 'January to June 2026', cv: 'experience' },
   rumia: { name: 'RUMIA prototype box', title: 'RUMIA', lines: ['A health and AI spin-off.', 'I lead go-to-market: organisation, funding and clients.'], year: '', cv: 'experience' },
   scout: { name: 'Scout neckerchief', title: 'Scout leader at AEiG Pau Claris', lines: ['Groups of 20 children aged 8 to 17.', 'I planned a two-week summer camp every year.'], year: '2023 to 2025', cv: 'experience' },
-  dj: { name: 'DJ setup', title: 'I mix house music.', lines: ['Two club-style media players and a four-channel mixer, at home.', 'With sound enabled, click the setup to hear a short loop.'], year: '', cv: 'beyond' },
-  vinyl: { name: 'Record wall', title: 'My record wall. House music, mostly.', lines: TRACKS.map(t => t.artist + ' - ' + t.title), year: '', cv: 'beyond' },
+  dj: { name: 'DJ setup', title: 'I mix house music.', lines: ['Two club-style media players and a four-channel mixer.', 'With sound enabled, click the setup to hear a short loop. You can also enjoy listening to one of the above.'], year: '', cv: 'beyond' },
+  vinyl: { name: 'Record wall', title: 'My record wall.', lines: TRACKS.map(t => t.artist + ' - ' + t.title), year: '', cv: 'beyond' },
   gauguin: { name: 'Le Cheval blanc, Paul Gauguin (1898). Click to look closer', title: '', lines: [], year: '', cv: '' },
   pissarro: { name: 'Femme dans un clos, Camille Pissarro (1887). Click to look closer', title: '', lines: [], year: '', cv: '' },
   skis: { name: 'Skis. Click to play', title: '', lines: [], year: '', cv: '' },

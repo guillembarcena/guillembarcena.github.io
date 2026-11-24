@@ -66,7 +66,7 @@ export const CV = [
   ] },
   { id: 'beyond', title: 'Beyond work', plain: [
     ['Running', 'Barcelona Marathon 2026, finished in 3:15:33'],
-    ['Basketball', 'Several years playing at a high level, in the Preferente category'],
+    ['Basketball', 'Several years playing at the highest category'],
     ['Music', 'I mix house music at home on two club-style media players and a four-channel mixer'],
   ] },
 ];

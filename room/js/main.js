@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../vendor/loaders/GLTFLoader.js';
-import { buildCity } from './city.js?v=22';
-import { overlayCanvas, desktopCanvas, laptopCanvas, loadFonts } from './textures.js?v=22';
-import { CARDS, TRACKS } from './data.js?v=22';
-import { audio } from './audio.js?v=22';
-import { OS } from './os.js?v=22';
+import { buildCity } from './city.js?v=23';
+import { overlayCanvas, desktopCanvas, laptopCanvas, loadFonts } from './textures.js?v=23';
+import { CARDS, TRACKS } from './data.js?v=23';
+import { audio } from './audio.js?v=23';
+import { OS } from './os.js?v=23';
 
 const params = new URLSearchParams(location.search);
 const FIXED_T = params.has('t') ? parseFloat(params.get('t')) : null;
@@ -40,8 +40,8 @@ async function start() {
   const tl = new THREE.TextureLoader();
   const loadTex = u => new Promise((res, rej) => tl.load(u, t => { t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; res(t); }, undefined, rej));
   const [gltf, tA, tB, tC] = await Promise.all([
-    new Promise((res, rej) => new GLTFLoader().load('room/baked/room.glb?v=22', res, undefined, rej)),
-    loadTex('room/baked/bake_A.jpg?v=22'), loadTex('room/baked/bake_B.jpg?v=22'), loadTex('room/baked/bake_C.jpg?v=22')]);
+    new Promise((res, rej) => new GLTFLoader().load('room/baked/room.glb?v=23', res, undefined, rej)),
+    loadTex('room/baked/bake_A.jpg?v=23'), loadTex('room/baked/bake_B.jpg?v=23'), loadTex('room/baked/bake_C.jpg?v=23')]);
   const baked = { A: new THREE.MeshBasicMaterial({ map: tA }), B: new THREE.MeshBasicMaterial({ map: tB, side: THREE.DoubleSide }), C: new THREE.MeshBasicMaterial({ map: tC, side: THREE.DoubleSide }) };
   const UT = { value: 0 };
   const vinylMat = baked.C.clone(); vinylMat.color.setScalar(1.75);
@@ -78,7 +78,7 @@ async function start() {
           c *= 0.95 + 0.05*sin(vUv.y*1100.0); c *= 1.0 + 0.12*uHover; c += vec3(0.02,0.03,0.05); }
         gl_FragColor = vec4(c, 1.0); }` });
   let screenMesh = null;
-  { const im = new Image(); im.onload = () => { const old = screenMat.uniforms.map.value; screenMat.uniforms.map.value = canvTex(desktopCanvas(im), false); old.dispose(); }; im.src = 'og.jpg?v=22'; }
+  { const im = new Image(); im.onload = () => { const old = screenMat.uniforms.map.value; screenMat.uniforms.map.value = canvTex(desktopCanvas(im), false); old.dispose(); }; im.src = 'og.jpg?v=23'; }
   const vuC = document.createElement('canvas'); vuC.width = 300; vuC.height = 190; const vuG = vuC.getContext('2d'); const vuTex = canvTex(vuC);
   const djC = ['L', 'R'].map(() => { const c = document.createElement('canvas'); c.width = 320; c.height = 148; return c; }); const djTex = djC.map(c => canvTex(c));
   const ringTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); const gr = g.createRadialGradient(128, 128, 96, 128, 128, 128); gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(.45, 'rgba(255,255,255,.9)'); gr.addColorStop(.6, 'rgba(255,255,255,.25)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 256, 256); return new THREE.CanvasTexture(c); })();
@@ -128,7 +128,7 @@ async function start() {
   { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,.85)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
     const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), color: '#ffc98f', transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.28 })); sp.position.set(-1.40, 1.30, -1.05); sp.scale.setScalar(0.36); sp.renderOrder = 5; scene.add(sp); }
   // the two paintings (public domain photographs), loaded as full-resolution textures; the drawn canvas stays as a fallback
-  await Promise.all(Object.entries({ gauguin: 'room/img/cheval-blanc.jpg?v=22', pissarro: 'room/img/pissarro-eragny.jpg?v=22' }).map(([k, src]) => new Promise(res => {
+  await Promise.all(Object.entries({ gauguin: 'room/img/cheval-blanc.jpg?v=23', pissarro: 'room/img/pissarro-eragny.jpg?v=23' }).map(([k, src]) => new Promise(res => {
     const im = new Image();
     im.onload = () => { const t = new THREE.Texture(im); t.flipY = false; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = renderer.capabilities.getMaxAnisotropy(); t.needsUpdate = true;
       gltf.scene.traverse(o => { if (o.userData.ovl === k) { o.material = new THREE.MeshBasicMaterial({ map: t, color: k === 'pissarro' ? '#d6cbc6' : '#e8dac4', polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }); } }); res(); };

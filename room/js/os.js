@@ -1,5 +1,5 @@
 // The mini-OS inside the monitor. Plain DOM, drawn sharp at full resolution.
-import { cvHTML, ABOUT, CARDS, TRACKS } from './data.js?v=16';
+import { cvHTML, ABOUT, CARDS, TRACKS } from './data.js?v=17';
 
 const ICON = {
   cv: '<rect x="7" y="4" width="18" height="24" rx="2" fill="#fff"/><path d="M11 10h10M11 15h10M11 20h6" stroke="#2f7bff" stroke-width="2" stroke-linecap="round"/>',
@@ -111,7 +111,7 @@ function termApp(body) {
     open: a => { if (objs.includes(a)) { setTimeout(() => S.openObject(a), 500); return `Flying back to the room to look at: ${CARDS[a].name}.`; } if (APPS[a]) { OS.open(a); return 'Opening ' + APPS[a].title + '.'; } return 'Usage: open <object>. Objects: ' + objs.join(', '); },
     marathon: () => 'Barcelona Marathon 2026\nbib      26021\nfinish   3:15:33\n' + '▁▂▃▄▅▆▇█▇▆▅▅▆▇█▇▆▅▄▃  done.',
     skills: () => 'Generative and agentic AI   ████████████\nStata                       █████████\nRStudio                     █████████\nExcel                       ██████████\nLanguages: Catalan and Spanish (native), English (fluent)',
-    how: () => 'The room was modelled in Blender with Python, and its light was baked with Cycles.\nthree.js draws those baked textures, plus the city outside and the live parts.\nAll of it was made with Claude Code.',
+    how: () => 'The room was modelled in Blender with Python, and its light was baked with Cycles.\nthree.js draws those baked textures, plus the city outside and the live parts.\nAll of it was built with Claude Code.',
     coffee: () => 'The mug on the desk is empty. Brewing is not implemented.',
     dj: () => { if (!S.audio.enabled) return 'Sound is off. Click "Enable sound" first.'; S.audio.playing ? S.audio.stopLoop() : S.audio.startLoop(); return S.audio.playing ? 'Playing a short house loop.' : 'Stopped.'; },
     sudo: () => 'Nice try. This computer only takes orders from its owner.',
@@ -202,7 +202,7 @@ function notesApp(body) { body.classList.add('notes'); body.innerHTML = '<textar
 
 function settingsApp(body) {
   body.classList.add('settings');
-  body.innerHTML = `<h3>Wallpaper</h3><div class="walls">${Object.entries(WALLS).map(([k, w]) => `<button data-w="${k}"><i style="background:${w.css.replace(/"/g, '&quot;')}"></i><span>${w.name}</span></button>`).join('')}</div><h3>Sound</h3><p><button class="snd"></button></p><h3>About</h3><p>A small operating system inside a baked three.js room. Made with Claude Code.</p>`;
+  body.innerHTML = `<h3>Wallpaper</h3><div class="walls">${Object.entries(WALLS).map(([k, w]) => `<button data-w="${k}"><i style="background:${w.css.replace(/"/g, '&quot;')}"></i><span>${w.name}</span></button>`).join('')}</div><h3>Sound</h3><p><button class="snd"></button></p><h3>About</h3><p>A small operating system inside a baked three.js room. Built with Claude Code.</p>`;
   const mark = () => body.querySelectorAll('[data-w]').forEach(b => b.classList.toggle('on', b.dataset.w === S.wall)); mark();
   body.querySelectorAll('[data-w]').forEach(b => b.onclick = () => { setWall(b.dataset.w); mark(); });
   const snd = body.querySelector('.snd'); const upd = on => snd.textContent = on ? 'Sound is on. Turn off' : 'Enable sound'; upd(S.audio.enabled); S.audio.listeners.push(upd); snd.onclick = () => S.audio.toggle();

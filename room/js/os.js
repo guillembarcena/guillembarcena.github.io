@@ -1,5 +1,5 @@
 // The mini-OS inside the monitor. Plain DOM, drawn sharp at full resolution.
-import { cvHTML, ABOUT, CARDS, TRACKS } from './data.js?v=23';
+import { cvHTML, ABOUT, CARDS, TRACKS } from './data.js?v=26';
 
 const ICON = {
   cv: '<rect x="7" y="4" width="18" height="24" rx="2" fill="#fff"/><path d="M11 10h10M11 15h10M11 20h6" stroke="#2f7bff" stroke-width="2" stroke-linecap="round"/>',

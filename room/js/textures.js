@@ -1,5 +1,5 @@
 // Canvas-drawn textures: bib, medal, sleeves, labels, notes, screens.
-import { TRACKS } from './data.js?v=23';
+import { TRACKS } from './data.js?v=26';
 
 const DISPLAY = '"Archivo Black","Arial Black",Impact,sans-serif';
 const SANS = 'Inter,"Helvetica Neue",Arial,sans-serif';
@@ -131,7 +131,7 @@ function rumia() {
 }
 
 function postcard() {
-  // a photo of the Highlands, drawn
+  // drawn placeholder; main.js replaces it with the real photo of Edinburgh Castle once that loads
   const [c, g] = cv(1000, 700, '#fbfaf6');
   const sky = g.createLinearGradient(0, 30, 0, 420); sky.addColorStop(0, '#7f9cc4'); sky.addColorStop(.7, '#d9dfe6'); sky.addColorStop(1, '#f3e6cf');
   g.fillStyle = sky; g.fillRect(30, 30, 940, 640);
